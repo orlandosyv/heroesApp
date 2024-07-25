@@ -17,11 +17,13 @@ export class HeroPageComponent implements OnInit {
     private heroesService: HeroesService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {  }
 
   ngOnInit(): void {
     this.activatedRoute.params
-      .pipe(switchMap(({ id }) => this.heroesService.getHeroById(id)))
+      .pipe(
+        switchMap(({ id }) => this.heroesService.getHeroById(id))
+      )
       .subscribe((hero) => {
         if (!hero) return this.router.navigate(['/heroes/list']);
         this.hero = hero;
