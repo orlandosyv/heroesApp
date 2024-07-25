@@ -31,4 +31,8 @@ export class HeroPageComponent implements OnInit {
         return;
       });
   }
+
+  goBack() {
+    this.router.navigateByUrl('heroes/list')
+  }
 }
