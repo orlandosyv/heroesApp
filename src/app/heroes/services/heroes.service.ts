@@ -7,7 +7,7 @@ import { environment } from '../../../environment/environment';
 @Injectable({ providedIn: 'root' })
 export class HeroesService {
   private baseURL: string = environment.baseURL;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(`${this.baseURL}/heroes`);
@@ -17,5 +17,10 @@ export class HeroesService {
     return this.http
       .get<Hero>(`${this.baseURL}/heroes/${id}`)
       .pipe(catchError((error) => of(undefined)));
+  }
+
+  getSuggestions(query: string): Observable<Hero[]>
+  {
+    return this.http.get<Hero[]>(`/heroes?q=${query}&limit=4`)
   }
 }
