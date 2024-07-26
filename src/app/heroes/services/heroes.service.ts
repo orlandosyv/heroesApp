@@ -32,11 +32,12 @@ export class HeroesService {
     return this.http.patch<Hero>(`${this.baseURL}/heroes/${hero.id}`, hero);
   }
 
-  deleteHeroById(id: string): Observable<Boolean> {
-    return this.http.delete<Hero>(`${this.baseURL}/heroes/${id}`).
-      pipe(
-        catchError(error => of(false)),
-        map(resp => true) //if it reachs this point, it was successful then true
-      )
-      }
+  deleteHeroById(id: string): Observable<boolean> {
+    return this.http.delete<Hero>(`${this.baseURL}/heroes/${id}`)
+      .pipe(
+        map((resp) => true),
+        catchError((error) => of(false)
+        ) //if it reachs this point, it was successful then true
+      );
+  }
 }
