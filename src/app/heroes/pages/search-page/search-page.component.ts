@@ -23,7 +23,7 @@ export class SearchPageComponent {
     // console.log({ value });
     this.heroesService.getSuggestions(value)
       .subscribe(Heros => this.heroes = Heros);
-    console.log( this.heroes );
+    // console.log( this.heroes );
   }
 
   onSelectedOption(event: MatAutocompleteSelectedEvent) {
