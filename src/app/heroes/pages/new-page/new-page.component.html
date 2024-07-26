@@ -59,7 +59,8 @@
 
         <div class="flex justify-content-between">
           <button *ngIf="currentHero.id"
-          mat-flat-button color="warn">
+          mat-flat-button color="warn"
+          (click)="onDeleteHero()" >
             Erase
           </button>
           <span></span>
