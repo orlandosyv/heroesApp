@@ -6,12 +6,12 @@ import { AuthGuard } from './auth/guards/auth.guard';
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'heroes',
     loadChildren: () =>
-      import('./heroes/heroes.module').then((m) => m.HeroesModule),
+      import('./heroes/heroes.module').then(m => m.HeroesModule),
     canActivate: [AuthGuard],
     canMatch: [AuthGuard],
   },
